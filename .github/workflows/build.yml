@@ -12,9 +12,15 @@ jobs:
   build:
 
     runs-on: self-hosted
+    defaults:
+      run:
+        shell: "/usr/bin/arch -arm64 /bin/zsh {0}"
 
     steps:
     - uses: actions/checkout@v2
+    
+    - name: Architecture Check
+      run: arch
       
     - name: Checkout matrix-ios-sdk
       uses: actions/checkout@v2
