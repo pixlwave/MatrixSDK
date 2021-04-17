@@ -31,7 +31,7 @@ jobs:
         
     - name: Install Pods
       working-directory: matrix-ios-sdk
-      run: pod install
+      run: arch -x86_64 pod install
       
     - name: Build for iOS
       working-directory: matrix-ios-sdk
