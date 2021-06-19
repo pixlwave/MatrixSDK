@@ -23,6 +23,11 @@ jobs:
         ref: ${{ github.event.inputs.version }}
         path: matrix-ios-sdk
         
+    - name: Update Podfile
+      run: |
+        cat Podfile-frameworks | cat - Podfile | cat - Podfile-post-install > Podfile.tmp
+        mv Podfile.tmp Podfile
+      
     - name: Install Pods
       working-directory: matrix-ios-sdk
       run: pod install
