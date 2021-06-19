@@ -24,9 +24,7 @@ jobs:
         path: matrix-ios-sdk
         
     - name: Update Podfile
-      run: |
-        cat Podfile-frameworks | cat - matrix-ios-sdk/Podfile | cat - Podfile-post-install > Podfile.tmp
-        mv Podfile.tmp matrix-ios-sdk/Podfile
+      run: cat Podfile-post-install >> matrix-ios-sdk/Podfile
       
     - name: Install Pods
       working-directory: matrix-ios-sdk
